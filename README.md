@@ -1,6 +1,6 @@
 # Mirah Maven Plugin
 
-Plugin to allow to compile Mirah code with Maven.
+Plugin to allow to compile [Mirah](https://github.com/mirah/mirah) code with Maven.
 
 ## Usage
 
