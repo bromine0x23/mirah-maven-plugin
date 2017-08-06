@@ -7,7 +7,8 @@
 	<version>0.2.1-SNAPSHOT</version>
 	<packaging>maven-plugin</packaging>
 
-	<name>mirah-maven-plugin</name>
+	<name>Mirah Maven Plugin</name>
+	<description>Plugin to compile Mirah source with Maven</description>
 	<url>https://github.com/bromine0x23/mirah-maven-plugin</url>
 
 	<licenses>
@@ -49,6 +50,7 @@
 
 		<maven-invoker-plugin.version>3.0.1</maven-invoker-plugin.version>
 		<maven-javadoc-plugin.version>2.10.4</maven-javadoc-plugin.version>
+		<maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
 		<maven-plugin-plugin.version>3.5</maven-plugin-plugin.version>
 		<maven-source-plugin.version>3.0.1</maven-source-plugin.version>
 
@@ -61,6 +63,11 @@
 			<groupId>org.mirah</groupId>
 			<artifactId>mirah</artifactId>
 			<version>${mirah.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<version>3.5.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.maven</groupId>
@@ -126,6 +133,19 @@
 						<id>attach-javadocs</id>
 						<goals>
 							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>${maven-gpg-plugin.version}</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
 						</goals>
 					</execution>
 				</executions>
