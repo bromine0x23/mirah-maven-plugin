@@ -48,7 +48,10 @@ public abstract class AbstractMirahMojo extends AbstractMojo {
 		}
 	}
 
-	protected static void mojoCompile(List<String> arguments) throws MojoExecutionException {
+	protected void mojoCompile(List<String> arguments) throws MojoExecutionException {
+		if (getLog().isDebugEnabled()) {
+			getLog().debug("Arguments: " + arguments);
+		}
 		Mirahc mirahc = new Mirahc();
 		int    result = mirahc.compile(arguments.toArray(new String[arguments.size()]));
 		if (result != 0) {
